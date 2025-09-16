@@ -24,6 +24,8 @@ model User{
 
   firstName String?
   lastName String? 
+  bookmarks Bookmark[]
+  
 }
 model Bookmark{
   id Int @id @default(autoincrement())
@@ -34,5 +36,8 @@ model Bookmark{
   description String?
   link String
   
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+
   
 }
