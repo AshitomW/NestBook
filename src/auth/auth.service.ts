@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-@Injectable({})
+@Injectable()
 export default class AuthService {
   SignIn() {
     return { status: 200, msg: 'Signed In' };
