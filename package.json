@@ -18,9 +18,10 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "db:dev:rm": "docker compose rm development-db -s -f -v",
-    "db:dev:up": "docker compose up development-db -d",
-    "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up"
+    "db:dev:rm": "docker compose rm dev-database -s -f -v",
+    "db:dev:up": "docker compose up dev-database -d",
+    "db:dev:restart": "yarn db:dev:rm && yarn db:dev:up && sleep 1 && yarn prisma:dev:deploy",
+    "prisma:dev:deploy": "prisma migrate deploy"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
