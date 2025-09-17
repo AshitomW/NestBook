@@ -11,8 +11,8 @@ export default class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('signin')
-  SignIn() {
-    return this.authService.SignIn();
+  SignIn(@Body() dto: AuthDto) {
+    return this.authService.SignIn(dto);
   }
 
   @Post('signup')
